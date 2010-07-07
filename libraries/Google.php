@@ -86,7 +86,7 @@ class Google
 	 * @param	array	$args
 	 * @return	object	The response data object
 	 */
-    public function __call($name, $args)
+	public function __call($name, $args)
 	{
 		// Check if the function name is a valid API call.
 		if(!in_array($name, $this->_valid_calls))
