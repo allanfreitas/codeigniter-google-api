@@ -1,0 +1,46 @@
+h1. CodeIgniter Google API Library
+
+* Author: "Dan Horrigan":http://dhorrigan.com/
+
+h2. DESCRIPTION
+
+This allows you to easily interface with Google's AJAX API within your CodeIgniter application.
+
+h2. INSTALLATION
+
+1.  Copy Google.php to your application/libraries folder.
+2.  Load the library like normal. (@$this->load->library('google');@)
+
+h2. USAGE
+
+API calls takes 2 parameters:
+1. The search string
+2. An array of options
+
+Valid API calls include:
+<pre><code>$this->google->web();
+$this->google->local();
+$this->google->video();
+$this->google->blogs();
+$this->google->news();
+$this->google->books();
+$this->google->images();
+$this->google->patents();</code></pre>
+
+Examples:
+@$this->google->web('codeigniter');@
+
+@$this->google->images('cougar', array('safe' => 'active'));@
+
+h3. Return Values
+
+The library return the responseData object sent by Google.  You must access the results like this:
+
+<pre><code>$search = $this->google->web('codeigniter');
+$results = $search->results;</code></pre>
+
+You can also use chaining to simplify it:
+<pre><code>$results = $this->google->web('codeigniter')->results;</code></pre>
+
+For more information on the return object please see the API reference:
+"Google API Reference":http://code.google.com/apis/ajaxsearch/documentation/reference.html#_intro_fonje
